@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Core NexFuel Brand Palette */
+  --color-brand-primary: #a30012;
+  --color-brand-primary-container: #d0021b;
+  --color-brand-dark: #1a1a1a;
+  --color-brand-light: #fbf9f8;
+
+  /* Surface Tonal Layering */
+  --color-surface-lowest: #ffffff;
+  --color-surface-low: #f5f3f3;
+  --color-surface-default: #efeded;
+  --color-surface-high: #e9e8e7;
+  --color-surface-highest: #e4e2e2;
+
+  /* Text & Borders */
+  --color-text-primary: #1b1c1c;
+  --color-text-secondary: #5d3f3c;
+  --color-text-muted: #5f5e5e;
+  --color-borders-outline: #926e6b;
+  --color-borders-variant: #e7bdb8;
+
+  /* Semantic states */
+  --color-emergency: #EF4444;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+
+  /* Custom Radii & Spacing */
+  --radius-card: 20px;
+  --radius-input: 16px;
+  --radius-btn: 14px;
+  --radius-modal: 24px;
+  --spacing-unit: 8px;
+  --spacing-gutter: 24px;
+
+  /* Shadows */
+  --shadow-industrial: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0px 20px 60px rgba(0, 0, 0, 0.12);
+
+  /* Fonts */
+  --font-sans: "Poppins", sans-serif;
+  --font-display: "Lora", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Animations */
+  --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-text-primary font-sans antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+
+  input, select, textarea {
+    @apply font-sans focus:outline-none transition-all duration-200;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism utilities */
+  .glassmorphic {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .glassmorphic-dark {
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Custom scrollbar for modern command-center feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-highest rounded-full transition-colors duration-150 hover:bg-text-muted;
+  }
+}
