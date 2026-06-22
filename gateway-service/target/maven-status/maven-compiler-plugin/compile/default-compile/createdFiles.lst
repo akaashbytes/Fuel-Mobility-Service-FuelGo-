@@ -1,0 +1,3 @@
+com\nexfuel\gateway\GatewayApplication.class
+com\nexfuel\gateway\filter\JwtAuthenticationFilter.class
+com\nexfuel\gateway\config\SecurityConfig.class
